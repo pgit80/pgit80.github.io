@@ -1,25 +1,27 @@
+import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { profile } from "../data/profile.js";
 
-// To add or remove a nav item, edit this list. `id` must match a section id.
 const sections = [
   { id: "about", label: "About" },
-  { id: "contact", label: "Contact" },
   { id: "experience", label: "Experience" },
   { id: "education", label: "Education" },
+  { id: "coding", label: "MyCodes" },
   { id: "documents", label: "Certificates" },
   { id: "resume", label: "Resume" },
+  { id: "contact", label: "Contact" },
 ];
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
   function go(id) {
+    setOpen(false);
     if (pathname === "/") {
       document.getElementById(id)?.scrollIntoView();
     } else {
-      // From the blog: go home, then Home scrolls to the section.
       navigate("/", { state: { scrollTo: id } });
     }
   }
@@ -30,8 +32,21 @@ export default function Navbar() {
         <button className="brand" onClick={() => go("about")}>
           {profile.name}
         </button>
-        <nav aria-label="Main">
-          <ul className="links">
+
+        <button
+          className="menu-btn"
+          aria-label="Toggle menu"
+          aria-expanded={open}
+          aria-controls="main-links"
+          onClick={() => setOpen((o) => !o)}
+        >
+          <span className="bar" />
+          <span className="bar" />
+          <span className="bar" />
+        </button>
+
+        <nav aria-label="Main" className={"menu" + (open ? " open" : "")}>
+          <ul className="links" id="main-links">
             {sections.map((s) => (
               <li key={s.id}>
                 <button className="navlink" onClick={() => go(s.id)}>
@@ -42,6 +57,7 @@ export default function Navbar() {
             <li>
               <Link
                 to="/blog"
+                onClick={() => setOpen(false)}
                 className={"navlink" + (pathname.startsWith("/blog") ? " active" : "")}
               >
                 Blog

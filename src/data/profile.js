@@ -82,6 +82,13 @@ export const education = [
   },
 ];
 
+// Your coding profiles. `note` is optional: a handle, rating or problems solved.
+export const codingProfiles = [
+  { label: "LeetCode", note: "pgit80", url: "https://leetcode.com/u/pgit80/" },
+  { label: "Codeforces", note: "pryanshug88", url: "https://codeforces.com/profile/pryanshug88" },
+  { label: "GitHub", note: "pgit80", url: "https://github.com/pgit80" },
+];
+
 // Links to files on Google Drive. In Drive: right click the file →
 // Share → "Anyone with the link can view" → Copy link.
 export const documents = [
@@ -97,6 +104,7 @@ export const documents = [
   },
   {
     label: "WBL Internship Certificate",
+    note: "Internship Certificate from MEITy",
     url: "https://drive.google.com/file/d/1cowAUF-l4vk3xqWwMXhGAJSIUPKHolBy/view?usp=sharing",
   }
 ];
@@ -107,3 +115,10 @@ export const resume = {
   // Show the PDF inside the page. Set to false to show only the buttons.
   embed: true,
 };
+
+export const socials=[
+  {label: "Instagram", handle:"pgit80", url:"https://instagram.com/pgit80"},
+  {label: "Youtube", handle:"studyNcode", url:"https://youtube.com/@studyncode"},
+  {label: "Instagram", handle:"studyncode", url:"https://instagram.com/studyncode"},
+  {label: "Instagram", handle:"book.o.holic", url:"https://instagram.com/book.o.holic"}
+];

@@ -1,22 +1,26 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Section from "../components/Section.jsx";
 import {
   profile,
   experience,
   education,
+  codingProfiles,
   documents,
   resume,
+  socials,
 } from "../data/profile.js";
 
 export default function Home() {
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Arrived from the blog page via a navbar link? Scroll to that section.
   useEffect(() => {
     const id = location.state?.scrollTo;
-    if (id) requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView());
-  }, [location.state]);
+    if (id) requestAnimationFrame(() => {document.getElementById(id)?.scrollIntoView()});
+    navigate(location.pathname, { replace: true, state: {} });
+  }, [location, navigate]);
 
   return (
     <div className="wrap">
@@ -67,6 +71,19 @@ export default function Home() {
         </div>
       </Section>
 
+      <Section id="coding" title="Coding profiles">
+  <ul className="doclist">
+    {codingProfiles.map((c, i) => (
+      <li key={i}>
+        <a href={c.url} target="_blank" rel="noreferrer">
+          <strong>{c.label}</strong>
+          {c.note && <span>{c.note}</span>}
+        </a>
+      </li>
+    ))}
+  </ul>
+</Section>
+
       {/* Google Drive documents */}
       <Section id="documents" title="Certificates and marksheets">
         <ul className="doclist">
@@ -92,7 +109,7 @@ export default function Home() {
           </a>
         </p>
         {resume.embed && (
-          <iframe className="resume-frame" src={resume.url} title="Resume" />
+          <iframe className="resume-frame" src={resume.url} title="Resume" loading="lazy" />
         )}
       </Section>
 
@@ -114,6 +131,18 @@ export default function Home() {
           ))}
         </ul>
       </Section>
+      <Section id="coding" title="Social Links">
+  <ul className="doclist">
+    {socials.map((s, i) => (
+      <li key={i}>
+        <a href={s.url} target="_blank" rel="noreferrer">
+          <strong>{s.label}</strong>
+          {s.handle && <span>{s.handle}</span>}
+        </a>
+      </li>
+    ))}
+  </ul>
+</Section>
     </div>
   );
 }

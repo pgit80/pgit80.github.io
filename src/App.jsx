@@ -6,6 +6,7 @@ import Home from "./pages/Home.jsx";
 import Blog from "./pages/Blog.jsx";
 import BlogPost from "./pages/BlogPost.jsx";
 
+
 function Shell() {
   const { pathname } = useLocation();
 
