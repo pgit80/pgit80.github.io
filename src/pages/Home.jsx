@@ -18,7 +18,10 @@ export default function Home() {
   // Arrived from the blog page via a navbar link? Scroll to that section.
   useEffect(() => {
     const id = location.state?.scrollTo;
-    if (id) requestAnimationFrame(() => {document.getElementById(id)?.scrollIntoView()});
+    if (id)
+      requestAnimationFrame(() => {
+        document.getElementById(id)?.scrollIntoView();
+      });
     navigate(location.pathname, { replace: true, state: {} });
   }, [location, navigate]);
 
@@ -26,7 +29,11 @@ export default function Home() {
     <div className="wrap">
       {/* About */}
       <section id="about" className="hero">
-        <img className="photo" src={profile.photo} alt={`Photo of ${profile.name}`} />
+        <img
+          className="photo"
+          src={profile.photo}
+          alt={`Photo of ${profile.name}`}
+        />
         <div>
           <h1>{profile.name}</h1>
           <p className="role">{profile.role}</p>
@@ -72,17 +79,20 @@ export default function Home() {
       </Section>
 
       <Section id="coding" title="Coding profiles">
-  <ul className="doclist">
-    {codingProfiles.map((c, i) => (
-      <li key={i}>
-        <a href={c.url} target="_blank" rel="noreferrer">
-          <strong>{c.label}</strong>
-          {c.note && <span>{c.note}</span>}
-        </a>
-      </li>
-    ))}
-  </ul>
-</Section>
+        <ul className="doclist">
+          {codingProfiles.map((c, i) => (
+            <li key={i}>
+              <a href={c.url} target="_blank" rel="noreferrer">
+                {c.icon && (
+                <i className={c.icon} style={{ marginRight: "8px" }}></i>
+              )}
+                <strong>{c.label}</strong>
+                {c.note && <span>{c.note}</span>}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </Section>
 
       {/* Google Drive documents */}
       <Section id="documents" title="Certificates and marksheets">
@@ -101,7 +111,12 @@ export default function Home() {
       {/* Resume */}
       <Section id="resume" title="Resume">
         <p className="actions">
-          <a className="btn primary" href={resume.url} target="_blank" rel="noreferrer">
+          <a
+            className="btn primary"
+            href={resume.url}
+            target="_blank"
+            rel="noreferrer"
+          >
             View resume
           </a>
           <a className="btn" href={resume.url} download>
@@ -109,7 +124,12 @@ export default function Home() {
           </a>
         </p>
         {resume.embed && (
-          <iframe className="resume-frame" src={resume.url} title="Resume" loading="lazy" />
+          <iframe
+            className="resume-frame"
+            src={resume.url}
+            title="Resume"
+            loading="lazy"
+          />
         )}
       </Section>
 
@@ -117,7 +137,10 @@ export default function Home() {
       <Section id="contact" title="Contact">
         <ul className="contact">
           <li>
-            Email: <a href={`mailto:${profile.contact.email}`}>{profile.contact.email}</a>
+            Email:{" "}
+            <a href={`mailto:${profile.contact.email}`}>
+              {profile.contact.email}
+            </a>
           </li>
           <li>Phone: {profile.contact.phone}</li>
           <li>Location: {profile.contact.location}</li>
@@ -131,18 +154,22 @@ export default function Home() {
           ))}
         </ul>
       </Section>
-      <Section id="coding" title="Social Links">
-  <ul className="doclist">
-    {socials.map((s, i) => (
-      <li key={i}>
-        <a href={s.url} target="_blank" rel="noreferrer">
-          <strong>{s.label}</strong>
-          {s.handle && <span>{s.handle}</span>}
-        </a>
-      </li>
-    ))}
-  </ul>
-</Section>
+      <Section id="socials" title="Social Links">
+        <ul className="doclist">
+          {socials.map((s, i) => (
+            <li key={i}>
+              
+              <a href={s.url} target="_blank" rel="noreferrer">
+                {s.icon && (
+                <i className={s.icon} style={{ marginRight: "8px" }}></i>
+              )}
+                <strong>{s.label}</strong>
+                {s.handle && <span>{s.handle}</span>}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </Section>
     </div>
   );
 }

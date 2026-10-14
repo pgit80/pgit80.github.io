@@ -14,7 +14,7 @@
 export const posts = [
   {
     slug: "my-first-post",
-    title: "My first post: what I am learning",
+    title: "Here I'll write my personal thoughts and learning.",
     date: "2025-01-15",
     summary: "A short note on what I am learning right now and why.",
     content: [
@@ -27,9 +27,9 @@ export const posts = [
   {
     slug: "medium-example",
     title: "An article I wrote on Medium",
-    date: "2025-01-02",
-    summary: "This one links out to Medium instead of opening here.",
-    link: "https://medium.com/@your-username/your-article",
+    date: "2026-10-14",
+    summary: "Medium Blog.",
+    link: "https://medium.com/@pryanshug88/linear-algebra-from-computer-science-perspective-97b393fe85f0?postPublishedType=initial",
     source: "Medium",
   },
 ];

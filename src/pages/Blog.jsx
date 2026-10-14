@@ -11,7 +11,7 @@ export const formatDate = (iso) =>
 export default function Blog() {
   return (
     <div className="wrap page">
-      <h1>Blog</h1>
+      <h1>My Blog Space</h1>
       <p className="lead">What I am learning and thinking about.</p>
 
       {posts.length === 0 && <p>No posts yet. Add one in src/data/posts.js.</p>}

@@ -22,8 +22,8 @@ export const profile = {
     phone: "+91-8795667730",
     location: "Basti, India",
     links: [
-      { label: "GitHub", url: "https://github.com/pgit80" },
-      { label: "LinkedIn", url: "https://www.linkedin.com/in/pgit80" },
+      { label: "GitHub", url: "https://github.com/pgit80", icon: "fa-brands fa-github" },
+      { label: "LinkedIn", url: "https://www.linkedin.com/in/pgit80", icon: "fa-brands fa-linkedin" },
       { label: "Medium", url: "https://medium.com/@pryanshug88" },
     ],
   },
@@ -84,9 +84,9 @@ export const education = [
 
 // Your coding profiles. `note` is optional: a handle, rating or problems solved.
 export const codingProfiles = [
-  { label: "LeetCode", note: "pgit80", url: "https://leetcode.com/u/pgit80/" },
-  { label: "Codeforces", note: "pryanshug88", url: "https://codeforces.com/profile/pryanshug88" },
-  { label: "GitHub", note: "pgit80", url: "https://github.com/pgit80" },
+  { label: "LeetCode", note: "pgit80", url: "https://leetcode.com/u/pgit80/", icon: "fa-solid fa-code" },
+  { label: "Codeforces", note: "pryanshug88", url: "https://codeforces.com/profile/pryanshug88", icon: "fa-solid fa-code" },
+  { label: "GitHub", note: "pgit80", url: "https://github.com/pgit80", icon: "fa-solid fa-code" },
 ];
 
 // Links to files on Google Drive. In Drive: right click the file →
@@ -117,8 +117,8 @@ export const resume = {
 };
 
 export const socials=[
-  {label: "Instagram", handle:"pgit80", url:"https://instagram.com/pgit80"},
-  {label: "Youtube", handle:"studyNcode", url:"https://youtube.com/@studyncode"},
-  {label: "Instagram", handle:"studyncode", url:"https://instagram.com/studyncode"},
-  {label: "Instagram", handle:"book.o.holic", url:"https://instagram.com/book.o.holic"}
+  {label: "Instagram", handle:"pgit80", url:"https://instagram.com/pgit80", icon: "fa-brands fa-instagram"},
+  {label: "Youtube", handle:"studyNcode", url:"https://www.youtube.com/@StudyNcode", icon: "fa-brands fa-youtube"},
+  {label: "Instagram", handle:"studyncode", url:"https://instagram.com/studyNcode", icon: "fa-brands fa-instagram"},
+  {label: "Instagram", handle:"book.o.holic", url:"https://instagram.com/book.o.holic", icon: "fa-brands fa-instagram"}
 ];
